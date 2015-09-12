@@ -1,0 +1,74 @@
+﻿@model WebApplication1.Models.Doctor
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Doctor</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+                <label class="control-label col-xs-2" id="titleMobile">Doctor Name</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DoctorName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DoctorName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-2" id="titleMobile">Initials</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DoctorInitials, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DoctorInitials, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-2" id="titleMobile">Glove Size</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GloveSize, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GloveSize, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-2" id="titleMobile">Glove Type</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GloveType, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GloveType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-2" id="titleMobile">Comments</label>
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.DoctorComment,5, 100, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DoctorComment, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

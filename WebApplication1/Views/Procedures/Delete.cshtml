@@ -1,0 +1,31 @@
+﻿@model WebApplication1.Models.Procedure
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Procedure</h4>
+    <hr />
+    <div class="row">
+        <div class="col-xs-2" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Name</label>
+        </div>
+        <div class="col-xs-10" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.ProcedureName)
+        </div>
+    </div>
+    <br />
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

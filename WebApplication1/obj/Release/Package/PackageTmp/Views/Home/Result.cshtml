@@ -1,0 +1,269 @@
+﻿@model WebApplication1.Models.ViewModel
+
+@{
+    ViewBag.Title = "Procedure Setup Details";
+}
+
+@{
+    var doc = Model.Setups.FirstOrDefault().Doctor;
+    var glove = Model.Doctors.FirstOrDefault().GloveSize;
+    var initials = Model.Doctors.FirstOrDefault().DoctorInitials;
+    var gloveType = Model.Doctors.FirstOrDefault().GloveType;
+    var traits = Model.Doctors.FirstOrDefault().DoctorComment;
+    var proc = Model.Setups.FirstOrDefault().Procedure;
+    var otherequipment = Model.Setups.FirstOrDefault().OtherEquipment;
+    var comments = Model.Setups.FirstOrDefault().Comments;
+}
+
+<div class="jumbotron" style="text-align:center">
+    <div class="row">
+    <div class="col-xs-6">
+        <div class="row">
+            <h1>Setup</h1>
+            <h3 style="text-align:center">@proc for @doc</h3>
+        </div>
+    </div>
+        <div class="col-xs-6" style="font-size:.75em">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="col-xs-12 alert alert-success" style="text-align:left">
+                        <p><b>Gloves:</b> @glove @gloveType</p>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="col-xs-12 alert alert-info" style="text-align:left">
+                        <p><b>Initials:</b> @initials</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="col-xs-12 alert alert-danger">
+                        <div class="row">
+                            <div class="col-xs-4" id="titleMobile">
+                                <p><b>Common Traits:</b></p>
+                            </div>
+                            <div class="col-xs-8" id="titleMobile">
+                                <p style="white-space:pre-wrap; text-align:left">@traits</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@foreach (var setup in Model.Setups)
+{
+    <div class="row">
+        <div class="col-xs-3">
+            <div class="col-xs-12 alert alert-info">
+                <div class="row">
+                    <div class="col-xs-12" id="titleMobile">
+                        <h4>Scan Details</h4><hr />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6" style="text-align:right" id="resultColMobileLeft">
+                        <b>Modailty: </b>
+                    </div>
+                    <div class="col-xs-6" id="resultColMobileRight">
+                        @Html.DisplayFor(model => setup.Modality)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6" style="text-align:right" id="resultColMobileLeft">
+                        <b>Orientation: </b>
+                    </div>
+                    <div class="col-xs-6" id="resultColMobileRight">
+                        @Html.DisplayFor(model => setup.Orientation)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6" style="text-align:right" id="resultColMobileLeft">
+                        <b>Bilateral: </b>
+                    </div>
+                    <div class="col-xs-6" id="resultColMobileRight">
+                        @Html.DisplayFor(model => setup.Bilateral)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="col-xs-12 alert alert-info">
+                <div class="row">
+                    <div class="col-xs-12" id="titleMobile">
+                        <h4>Needles</h4><hr />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8" style="text-align:right" id="resultColNeedlesMobileLeft">
+                        <b>Drawing Up (Pink): </b>
+                    </div>
+                    <div class="col-xs-4" id="resultColNeedlesMobileRight">
+                        @Html.DisplayFor(model => setup.NeedleDrawingUp)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8" style="text-align:right" id="resultColNeedlesMobileLeft">
+                        <b>35mm 25g (Orange): </b>
+                    </div>
+                    <div class="col-xs-4" id="resultColNeedlesMobileRight">
+                        @Html.DisplayFor(model => setup.NeedleOrange)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8" style="text-align:right" id="resultColNeedlesMobileLeft">
+                        <b>35mm 19g (White): </b>
+                    </div>
+                    <div class="col-xs-4" id="resultColNeedlesMobileRight">
+                        @Html.DisplayFor(model => setup.NeedleWhite)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8" style="text-align:right" id="resultColNeedlesMobileLeft">
+                        <b>50mm 22g (Grey): </b>
+                    </div>
+                    <div class="col-xs-4" id="resultColNeedlesMobileRight">
+                        @Html.DisplayFor(model => setup.NeedleGrey)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8" style="text-align:right" id="resultColNeedlesMobileLeft">
+                        <b>Spinal: </b>
+                    </div>
+                    <div class="col-xs-4" id="resultColNeedlesMobileRight">
+                        @Html.DisplayFor(model => setup.NeedleSpinal)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8" style="text-align:right" id="resultColNeedlesMobileLeft">
+                        <b>Spinal Gauge: </b>
+                    </div>
+                    <div class="col-xs-4" id="resultColNeedlesMobileRight">
+                        @Html.DisplayFor(model => setup.NeedleGauge)g
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="col-xs-12 alert alert-info">
+                <div class="row">
+                    <div class="col-xs-12" id="titleMobile">
+                        <h4>Syringes</h4><hr />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6" style="text-align:right" id="resultColSyringeMobileLeft">
+                        <b>1mL: </b>
+                    </div>
+                    <div class="col-xs-6" id="resultColSyringeMobileRight">
+                        @Html.DisplayFor(model => setup.Syringe1ml)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6" style="text-align:right" id="resultColSyringeMobileLeft">
+                        <b>3mL: </b>
+                    </div>
+                    <div class="col-xs-6" id="resultColSyringeMobileRight">
+                        @Html.DisplayFor(model => setup.Syringe3ml)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6" style="text-align:right" id="resultColSyringeMobileLeft">
+                        <b>5mL: </b>
+                    </div>
+                    <div class="col-xs-6" id="resultColSyringeMobileRight">
+                        @Html.DisplayFor(model => setup.Syringe5ml)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6" style="text-align:right" id="resultColSyringeMobileLeft">
+                        <b>10mL: </b>
+                    </div>
+                    <div class="col-xs-6" id="resultColSyringeMobileRight">
+                        @Html.DisplayFor(model => setup.Syringe10ml)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="col-xs-12 alert alert-info">
+                <div class="row">
+                    <div class="col-xs-12" id="titleMobile">
+                        <h4>Pharmaceuticals</h4><hr />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-7" style="text-align:right" id="resultColSyringeMobileLeft">
+                        <b>Lignocaine: </b>
+                    </div>
+                    <div class="col-xs-5" id="resultColSyringeMobileRight">
+                        @Html.DisplayFor(model => setup.Lignocaine)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-7" style="text-align:right" id="resultColSyringeMobileLeft">
+                        <b>Bupivacaine: </b>
+                    </div>
+                    <div class="col-xs-5" id="resultColSyringeMobileRight">
+                        @Html.DisplayFor(model => setup.Bupivacaine)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-7" style="text-align:right" id="resultColSyringeMobileLeft">
+                        <b>Steroid: </b>
+                    </div>
+                    <div class="col-xs-5" id="resultColSyringeMobileRight">
+                        @Html.DisplayFor(model => setup.Steroid)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-7" style="text-align:right" id="resultColSyringeMobileLeft">
+                        <b>Steroid Amount: </b>
+                    </div>
+                    <div class="col-xs-5" id="resultColSyringeMobileRight">
+                        @Html.DisplayFor(model => setup.SteroidAmount)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-7" style="text-align:right" id="resultColSyringeMobileLeft">
+                        <b>Contrast: </b>
+                    </div>
+                    <div class="col-xs-5" id="resultColSyringeMobileRight">
+                        @Html.DisplayFor(model => setup.Contrast)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="col-xs-12 alert alert-info" id="titleMobile">
+                <div class="row">
+                    <div class="col-xs-12" id="titleMobile">
+                        <h4>Other Equipment</h4><hr />
+                    </div>
+                </div>
+                <div>
+                    <p style="white-space:pre-wrap; text-align:left">@otherequipment</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="col-xs-12 alert alert-info" id="titleMobile">
+                <div class="row">
+                    <div class="col-xs-12" id="titleMobile">
+                        <h4>Comments</h4><hr />
+                    </div>
+                </div>
+                <div>
+                    <p style="white-space:pre-wrap; text-align:left">@comments</p>
+                </div>
+            </div>
+        </div>
+    </div>
+}

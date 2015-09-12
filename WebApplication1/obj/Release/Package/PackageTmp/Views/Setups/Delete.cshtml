@@ -1,0 +1,220 @@
+﻿@model WebApplication1.Models.Setup
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Setup</h4>
+    <hr />
+
+    <div class="row">
+        <div class="col-xs-3" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Doctor</label>
+        </div>
+        <div class="col-xs-9" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.Doctor)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Procedure</label>
+        </div>
+        <div class="col-xs-9" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.Procedure)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Modality</label>
+        </div>
+        <div class="col-xs-9" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.Modality)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Orientation</label>
+        </div>
+        <div class="col-xs-9" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.Orientation)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Bilateral</label>
+        </div>
+        <div class="col-xs-9" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.Bilateral)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Drawing Up Needle (Pink)</label>
+        </div>
+        <div class="col-xs-9" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.NeedleDrawingUp)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">35mm 25g Needle (Orange)</label>
+        </div>
+        <div class="col-xs-9" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.NeedleOrange)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">35mm 19g Needle (White)</label>
+        </div>
+        <div class="col-xs-9" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.NeedleWhite)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">50mm 22g Needle (Grey)</label>
+        </div>
+        <div class="col-xs-9" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.NeedleGrey)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">90mm Spinal Needle</label>
+        </div>
+        <div class="col-xs-9" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.NeedleSpinal)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Spinal Gauge</label>
+        </div>
+        <div class="col-xs-9" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.NeedleGauge)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">1mL Syringe</label>
+        </div>
+        <div class="col-xs-9" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.Syringe1ml)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">3mL Syringe</label>
+        </div>
+        <div class="col-xs-9" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.Syringe3ml)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">5mL Syringe</label>
+        </div>
+        <div class="col-xs-9" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.Syringe5ml)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">10mL Syringe</label>
+        </div>
+        <div class="col-xs-9" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.Syringe10ml)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Lignocaine</label>
+        </div>
+        <div class="col-xs-9" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.Lignocaine)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Bupivacaine</label>
+        </div>
+        <div class="col-xs-9" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.Bupivacaine)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Steroid Type</label>
+        </div>
+        <div class="col-xs-9" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.Steroid)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Steroid Amount</label>
+        </div>
+        <div class="col-xs-9" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.SteroidAmount)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Contrast</label>
+        </div>
+        <div class="col-xs-9" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.Contrast)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Other Equipment</label>
+        </div>
+        <div class="col-xs-9" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.OtherEquipment)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Comments</label>
+        </div>
+        <div class="col-xs-9" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.Comments)
+        </div>
+    </div>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

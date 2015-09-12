@@ -1,0 +1,79 @@
+﻿@model WebApplication1.Models.ViewModel
+
+@{
+    ViewBag.Title = "Procedures Doctor List";
+}
+
+@{
+    var proc = Model.Procedures.FirstOrDefault().ProcedureName;
+}
+
+<div class="jumbotron">
+    <h1 style="text-align:center">@proc</h1>
+</div>
+
+
+<div class="row" style="text-align:center">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-2">
+        <h3>CT</h3><hr />
+        @foreach (var setup in Model.Setups)
+        {
+            if (setup.Modality == "CT")
+            {
+                <div class="col-xs-12">
+                    <p class="col-xs-12 alert alert-info">@Html.ActionLink((Html.DisplayFor(s => setup.Doctor).ToString()), "Result", new { id = setup.ID })</p>
+                </div>
+            }
+        }
+    </div>
+    <div class="col-xs-2">
+        <h3>Ultrasound</h3><hr />
+        @foreach (var setup in Model.Setups)
+        {
+            if (setup.Modality == "Ultrasound")
+            {
+                <div class="col-xs-12" style="text-align:center">
+                    <p class="col-xs-12 alert alert-info">@Html.ActionLink((Html.DisplayFor(s => setup.Doctor).ToString()), "Result", new { id = setup.ID })</p>
+                </div>
+            }
+        }
+    </div>
+    <div class="col-xs-2">
+        <h3>Screening</h3><hr />
+        @foreach (var setup in Model.Setups)
+        {
+            if (setup.Modality == "Screening")
+            {
+                <div class="col-xs-12" style="text-align:center">
+                    <p class="col-xs-12 alert alert-info">@Html.ActionLink((Html.DisplayFor(s => setup.Doctor).ToString()), "Result", new { id = setup.ID })</p>
+                </div>
+            }
+        }
+    </div>
+    <div class="col-xs-2">
+        <h3>Mammography</h3><hr />
+        @foreach (var setup in Model.Setups)
+        {
+            if (setup.Modality == "Mammography")
+            {
+                <div class="col-xs-12" style="text-align:center">
+                    <p class="col-xs-12 alert alert-info">@Html.ActionLink((Html.DisplayFor(s => setup.Doctor).ToString()), "Result", new { id = setup.ID })</p>
+                </div>
+            }
+        }
+    </div>
+    <div class="col-xs-2">
+        <h3>Xray</h3><hr />
+        @foreach (var setup in Model.Setups)
+        {
+            if (setup.Modality == "Xray")
+            {
+                <div class="col-xs-12" style="text-align:center">
+                    <p class="col-xs-12 alert alert-info">@Html.ActionLink((Html.DisplayFor(s => setup.Doctor).ToString()), "Result", new { id = setup.ID })</p>
+                </div>
+            }
+        }
+    </div>
+    <div class="col-xs-1"></div>
+</div>

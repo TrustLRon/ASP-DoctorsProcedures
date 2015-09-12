@@ -1,0 +1,60 @@
+﻿@model IEnumerable<WebApplication1.Models.Doctor>
+@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "Doctors";
+}
+
+<h2>Doctors List</h2>
+
+@if (User.Identity.GetUserName() == "admin")
+{
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-lg btn-success" })
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Initials
+        </th>
+        <th>
+            Gloves
+        </th>
+        <th id="hideMobile">
+            Glove Type
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorInitials)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GloveSize)
+            </td>
+            <td id="hideMobile">
+                @Html.DisplayFor(modelItem => item.GloveType)
+            </td>
+            @if (User.Identity.GetUserName() == "admin")
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            }
+        </tr>
+    }
+
+</table>

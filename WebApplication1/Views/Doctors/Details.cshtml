@@ -1,0 +1,60 @@
+﻿@model WebApplication1.Models.Doctor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Doctor</h4>
+    <hr />
+    <div class="row">
+        <div class="col-xs-2" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Doctor Name</label>
+        </div>
+        <div class="col-xs-10" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.DoctorName)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-2" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Initials</label>
+        </div>
+        <div class="col-xs-10" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.DoctorInitials)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-2" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Glove Size</label>
+        </div>
+        <div class="col-xs-10" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.GloveSize)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-2" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Glove Type</label>
+        </div>
+        <div class="col-xs-10" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.GloveType)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Comments</label>
+        </div>
+        <div class="col-xs-10" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.DoctorComment)
+        </div>
+    </div>
+</div>
+<br />
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

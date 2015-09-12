@@ -1,0 +1,296 @@
+﻿@model WebApplication1.Models.Setup
+
+@{
+    ViewBag.Title = "Create";
+
+    IEnumerable<string> Modalities = new List<string> { "CT", "Ultrasound", "Screening", "Mammography", "Xray" };
+    IEnumerable<string> Gauge = new List<string> { "0", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27" };
+    IEnumerable<string> Contrast = new List<string> { "None", "Air", "Barium", "CO2", "Omnipaque" };
+    IEnumerable<string> Steroid = new List<string> { "None", "Celestone", "Dexamethasone" };
+
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Setup</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-xs-3" id="titleMobile">Doctor</label>            
+            <div class="col-md-9">
+                <select class="form-control" id="Doctor" name="Doctor">
+                    @foreach (var doctor in Model.Doctors)
+                        {
+                        <option>
+                            @doctor.DoctorName
+                        </option>
+                        }
+                </select>
+
+                @Html.ValidationMessageFor(model => model.Doctor, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" id="titleMobile">Procedure</label>
+            <div class="col-md-9">
+                <select class="form-control" id="Procedure" name="Procedure"> 
+                    @foreach (var procedure in Model.Procedures)
+                        {
+                        <option>
+                            @procedure.ProcedureName
+                        </option>
+                        }
+                </select>
+
+                @Html.ValidationMessageFor(model => model.Procedure, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" id="titleMobile">Modality</label>
+            <div class="col-md-9">
+                <select class="form-control" id="Modality" name="Modality">
+                    @foreach (string mod in Modalities)
+                    {
+                        if (mod == Model.Modality)
+                        {
+                            <option selected="selected">
+                                @mod
+                            </option>
+                        }
+                        else
+                        {
+                            <option>
+                                @mod
+                            </option>
+                        }
+                    }
+                </select>
+                @Html.ValidationMessageFor(model => model.Modality, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" id="titleMobile">Orientation</label>
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.Orientation, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Orientation, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" id="titleMobile">Bilateral</label>
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.Bilateral, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Bilateral, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" id="titleMobile">Drawing Up Needle (Pink)</label>
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.NeedleDrawingUp, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NeedleDrawingUp, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" id="titleMobile">35mm 25g Needle (Orange)</label>
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.NeedleOrange, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NeedleOrange, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" id="titleMobile">35mm 19g Needle (White)</label>
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.NeedleWhite, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NeedleWhite, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" id="titleMobile">50mm 22g Needle (Grey)</label>
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.NeedleGrey, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NeedleGrey, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" id="titleMobile">90mm Spinal Needle</label>
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.NeedleSpinal, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NeedleSpinal, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" id="titleMobile">Spinal Gauge</label>
+            <div class="col-md-9">
+                <select class="form-control" id="NeedleGauge" name="NeedleGauge">
+                    @foreach (string guage in Gauge)
+                    {
+                        if (guage == Model.NeedleGauge.ToString())
+                        {
+                            <option selected="selected">
+                                @guage
+                            </option>
+                        }
+                        else
+                        {
+                            <option>
+                                @guage
+                            </option>
+                        }
+                    }
+                </select>
+
+                @Html.ValidationMessageFor(model => model.NeedleGauge, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" id="titleMobile">1mL Syringe</label>
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.Syringe1ml, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Syringe1ml, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" id="titleMobile">3mL Syringe</label>
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.Syringe3ml, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Syringe3ml, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" id="titleMobile">5mL Syringe</label>
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.Syringe5ml, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Syringe5ml, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" id="titleMobile">10mL Syringe</label>
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.Syringe10ml, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Syringe10ml, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" id="titleMobile">Lignocaine</label>
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.Lignocaine, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Lignocaine, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" id="titleMobile">Bupivacaine</label>
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.Bupivacaine, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Bupivacaine, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" id="titleMobile">Steroid Type</label>
+            <div class="col-md-9">
+                <select class="form-control" id="Steroid" name="Steroid">
+                    @foreach (string steroid in Steroid)
+                    {
+                        if (steroid == Model.Steroid)
+                        {
+                            <option selected="selected">
+                                @steroid
+                            </option>
+                        }
+                        else
+                        {
+                            <option>
+                                @steroid
+                            </option>
+                        }
+                    }
+                </select>
+                @Html.ValidationMessageFor(model => model.Steroid, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" id="titleMobile">Steroid Amount</label>
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.SteroidAmount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SteroidAmount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" id="titleMobile">Contrast</label>
+            <div class="col-md-9">                
+                <select class="form-control" id="Contrast" name="Contrast">
+                    @foreach (string con in Contrast)
+                    {
+                        if (con == Model.Contrast)
+                        {
+                            <option selected="selected">
+                                @con
+                            </option>
+                        }
+                        else
+                        {
+                            <option>
+                                @con
+                            </option>
+                        }
+                    }
+                </select>
+
+                @Html.ValidationMessageFor(model => model.Contrast, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" id="titleMobile">Other Equipment</label>
+            <div class="col-md-9">
+                @Html.TextAreaFor(model => model.OtherEquipment,5,100, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OtherEquipment, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" id="titleMobile">Comments</label>
+            <div class="col-md-9">
+                @Html.TextAreaFor(model => model.Comments,5,100, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

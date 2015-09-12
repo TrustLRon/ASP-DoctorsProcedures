@@ -1,0 +1,36 @@
+﻿@model IEnumerable<WebApplication1.Models.Procedure>
+
+@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "Procedures";
+}
+
+<h2>Procedures List</h2>
+
+@if (User.Identity.GetUserName() == "admin")
+{
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-lg btn-success" })
+    </p>
+}
+
+<table class="table">
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProcedureName)
+        </td>
+        @if (User.Identity.GetUserName() == "admin")
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        }
+    </tr>
+} 
+</table>

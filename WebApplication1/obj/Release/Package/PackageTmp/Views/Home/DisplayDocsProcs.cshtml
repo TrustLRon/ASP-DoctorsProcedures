@@ -1,0 +1,117 @@
+﻿@model WebApplication1.Models.ViewModel
+
+@{
+    ViewBag.Title = "Doctors Procedure List";
+}
+
+@{
+    var doc = Model.Setups.FirstOrDefault().Doctor;
+    var glove = Model.Doctors.FirstOrDefault().GloveSize;
+    var initials = Model.Doctors.FirstOrDefault().DoctorInitials;
+    var gloveType = Model.Doctors.FirstOrDefault().GloveType;
+    var traits = Model.Doctors.FirstOrDefault().DoctorComment;
+}
+
+<div class="jumbotron" style="text-align:center">
+    <div class="row">
+        <div class="col-xs-5">
+            <div class="row">
+                <h1>@doc</h1>
+            </div>
+        </div>
+        <div class="col-xs-7" style="font-size:.75em">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="col-xs-12 alert alert-success" style="text-align:center">
+                        <p><b>Glove Size:</b> @glove @gloveType</p>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="col-xs-12 alert alert-info" style="text-align:center">
+                        <p><b>Initials:</b> @initials</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="col-xs-12 alert alert-danger">
+                        <div class="row">
+                            <div class="col-xs-4" id="titleMobile">
+                                <p><b>Common Traits:</b></p>
+                            </div>
+                            <div class="col-xs-8" id="titleMobile">
+                                <p style="white-space:pre-wrap; text-align:left">@traits</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row" style="text-align:center">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-2">
+        <h3>CT</h3><hr />
+        @foreach (var setup in Model.Setups)
+        {
+            if (setup.Modality == "CT")
+            {
+                <div class="col-xs-12">
+                    <p class="col-xs-12 alert alert-info">@Html.ActionLink((Html.DisplayFor(s => setup.Procedure).ToString()), "Result", new { id = setup.ID })</p>
+                </div>
+            }
+        }
+    </div>
+    <div class="col-xs-2">
+        <h3>Ultrasound</h3><hr />
+        @foreach (var setup in Model.Setups)
+        {
+            if (setup.Modality == "Ultrasound")
+            {
+                <div class="col-xs-12" style="text-align:center">
+                    <p class="col-xs-12 alert alert-info">@Html.ActionLink((Html.DisplayFor(s => setup.Procedure).ToString()), "Result", new { id = setup.ID })</p>
+                </div>
+            }
+        }
+    </div>
+    <div class="col-xs-2">
+        <h3>Screening</h3><hr />
+        @foreach (var setup in Model.Setups)
+        {
+            if (setup.Modality == "Screening")
+            {
+                <div class="col-xs-12" style="text-align:center">
+                    <p class="col-xs-12 alert alert-info">@Html.ActionLink((Html.DisplayFor(s => setup.Procedure).ToString()), "Result", new { id = setup.ID })</p>
+                </div>
+            }
+        }
+    </div>
+    <div class="col-xs-2">
+        <h3>Mammography</h3><hr />
+        @foreach (var setup in Model.Setups)
+        {
+            if (setup.Modality == "Mammography")
+            {
+                <div class="col-xs-12" style="text-align:center">
+                    <p class="col-xs-12 alert alert-info">@Html.ActionLink((Html.DisplayFor(s => setup.Procedure).ToString()), "Result", new { id = setup.ID })</p>
+                </div>
+            }
+        }
+    </div>
+    <div class="col-xs-2">
+        <h3>Xray</h3><hr />
+        @foreach (var setup in Model.Setups)
+        {
+            if (setup.Modality == "Xray")
+            {
+                <div class="col-xs-12" style="text-align:center">
+                    <p class="col-xs-12 alert alert-info">@Html.ActionLink((Html.DisplayFor(s => setup.Procedure).ToString()), "Result", new { id = setup.ID })</p>
+                </div>
+            }
+        }
+    </div>
+    <div class="col-xs-1"></div>
+</div>

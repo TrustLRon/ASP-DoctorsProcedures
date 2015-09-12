@@ -1,0 +1,67 @@
+﻿@model WebApplication1.Models.Doctor
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Doctor</h4>
+    <hr />
+    <div class="row">
+        <div class="col-xs-2" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Doctor Name</label>
+        </div>
+        <div class="col-xs-10" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.DoctorName)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-2" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Initials</label>
+        </div>
+        <div class="col-xs-10" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.DoctorInitials)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-2" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Glove Size</label>
+        </div>
+        <div class="col-xs-10" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.GloveSize)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-2" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Glove Type</label>
+        </div>
+        <div class="col-xs-10" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.GloveType)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Comments</label>
+        </div>
+        <div class="col-xs-10" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.DoctorComment)
+        </div>
+    </div>
+</div>
+<br />
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+

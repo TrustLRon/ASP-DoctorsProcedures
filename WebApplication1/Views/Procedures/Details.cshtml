@@ -1,0 +1,25 @@
+﻿@model WebApplication1.Models.Procedure
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Procedure</h4>
+    <hr />
+    <div class="row">
+        <div class="col-xs-2" style="text-align:right" id="resultColMobileLeft">
+            <label class="control-label">Name</label>
+        </div>
+        <div class="col-xs-10" id="resultColMobileRight">
+            @Html.DisplayFor(model => model.ProcedureName)
+        </div>
+    </div>
+    </div>
+    <br />
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
